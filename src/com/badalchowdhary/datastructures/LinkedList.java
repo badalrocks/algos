@@ -3,12 +3,14 @@ package com.badalchowdhary.datastructures;
 public class LinkedList
 {
     private Node head;
+    private int  count;
 
     public void add(Node node)
     {
         if (head == null)
         {
             head = node;
+            count++;
             return;
         }
 
@@ -20,16 +22,23 @@ public class LinkedList
         }
 
         currentNode.setNext(node);
+        count++;
     }
 
     public void delete(Node node)
     {
+        if (head == null)
+        {
+            return;
+        }
+
         Node currentNode = head;
 
         if (currentNode.getData() == node.getData())
         {
             head = currentNode.getNext();
             currentNode = null;
+            count--;
             return;
         }
 
@@ -41,6 +50,7 @@ public class LinkedList
             {
                 currentNode.setNext(nextNode.getNext());
                 nextNode = null;
+                count--;
                 return;
             }
 
@@ -51,24 +61,11 @@ public class LinkedList
 
     public int getNodeCount()
     {
-        if (head == null)
-        {
-            return 0;
-        }
-
-        int count = 1;
-
-        Node currentNode = head;
-        while (currentNode.getNext() != null)
-        {
-            count++;
-            currentNode = currentNode.getNext();
-        }
-
-        return count;
+        return this.count;
     }
 
-    public String getLinkedListNodes()
+    @Override
+    public String toString()
     {
         if (head == null)
         {
@@ -88,16 +85,6 @@ public class LinkedList
         sb.append(currentNode.getData()); // add last element in ll.
 
         return sb.toString();
-    }
-
-    public Node getHead()
-    {
-        return head;
-    }
-
-    public void setHead(Node head)
-    {
-        this.head = head;
     }
 
 }
