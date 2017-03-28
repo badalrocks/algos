@@ -87,4 +87,9 @@ public class LinkedList
         return sb.toString();
     }
 
+    public Node getHead()
+    {
+        return head;
+    }
+
 }

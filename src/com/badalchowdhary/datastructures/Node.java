@@ -39,7 +39,7 @@ public class Node
     @Override
     public String toString()
     {
-        return "Node [data=" + data + "]";
+        return "[" + data + "]";
     }
 
 }
