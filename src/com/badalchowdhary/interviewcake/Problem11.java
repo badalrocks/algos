@@ -2,7 +2,7 @@ package com.badalchowdhary.interviewcake;
 
 import java.util.HashMap;
 
-import com.badalchowdhary.datastructures.TrieNode;
+import com.badalchowdhary.datastructures.TrieNodeOld;
 
 /*
  * I wrote a crawler that visits web pages, stores a few keywords in a database, and follows links to other web pages. I noticed that my crawler was wasting a lot of time visiting the same pages over and over, so I made a hash set, visited, where I'm storing URLs I've already visited. Now the crawler only visits a URL if it hasn't already been visited.
@@ -14,12 +14,12 @@ How can I trim down the amount of space taken up by visited?
 
 public class Problem11
 {
-    private TrieNode root      = new TrieNode(Character.MIN_VALUE, new HashMap<Character, TrieNode>());
+    private TrieNodeOld root      = new TrieNodeOld(Character.MIN_VALUE, new HashMap<Character, TrieNodeOld>());
     private char     delimiter = '\0';
 
     public boolean addUrl(String url)
     {
-        TrieNode current = root;
+        TrieNodeOld current = root;
         for (int i = 0; i < url.length(); i++)
         {
             char c = url.charAt(i);

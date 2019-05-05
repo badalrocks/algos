@@ -1,20 +1,17 @@
 package com.badalchowdhary.datastructures;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- * TrieNode implementation with Map.
+ * TrieNode implementation with array.
  * 
  * @author badalrocks
  *
  */
-public class TrieNode
+public class TrieNodeV2
 {
-    private Map<Character, TrieNode> children = new HashMap<>();
-    private boolean                  endOfWord;
+    private TrieNodeV2[] children = new TrieNodeV2[26];
+    private boolean      endOfWord;
 
-    public Map<Character, TrieNode> getChildren()
+    public TrieNodeV2[] getChildren()
     {
         return this.children;
     }
